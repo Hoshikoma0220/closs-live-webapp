@@ -1,0 +1,30 @@
+/* src/styles/globals.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  html.light {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+  
+  html.dark {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+  }
