@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaBars, FaBell, FaSearch, FaHome, FaCog, FaUser } from 'react-icons/fa';
+import { FaBars, FaBell, FaSearch, FaHome, FaFire, FaUserFriends, FaClock, FaAd } from 'react-icons/fa';
 import Image from 'next/image'; // ユーザーアイコンに画像を使用するためのNext.js Imageコンポーネント
 
 interface HeaderProps {
@@ -134,17 +134,26 @@ const Layout: React.FC<HeaderProps> = ({ selectedSection, setSelectedSection }) 
           }`}
         >
           <ul className="space-y-4">
-            <li className="py-2 hover:bg-gray-700 rounded flex items-center">
-              <FaHome className="mr-2" />
-              <span className={`${isSidebarOpen ? 'inline' : 'hidden'} origin-left duration-300`}>ホーム</span>
+            {/* メニュー項目 */}
+            <li className={`py-2 hover:bg-gray-700 rounded flex items-center ${!isSidebarOpen ? 'justify-center' : ''}`}>
+              <FaHome className="mr-0" />
+              {isSidebarOpen && <span className="ml-2">ホーム</span>}
             </li>
-            <li className="py-2 hover:bg-gray-700 rounded flex items-center">
-              <FaCog className="mr-2" />
-              <span className={`${isSidebarOpen ? 'inline' : 'hidden'} origin-left duration-300`}>設定</span>
+            <li className={`py-2 hover:bg-gray-700 rounded flex items-center ${!isSidebarOpen ? 'justify-center' : ''}`}>
+              <FaFire className="mr-0" />
+              {isSidebarOpen && <span className="ml-2">トレンド</span>}
             </li>
-            <li className="py-2 hover:bg-gray-700 rounded flex items-center">
-              <FaUser className="mr-2" />
-              <span className={`${isSidebarOpen ? 'inline' : 'hidden'} origin-left duration-300`}>プロフィール</span>
+            <li className={`py-2 hover:bg-gray-700 rounded flex items-center ${!isSidebarOpen ? 'justify-center' : ''}`}>
+              <FaUserFriends className="mr-0" />
+              {isSidebarOpen && <span className="ml-2">フォロー中</span>}
+            </li>
+            <li className={`py-2 hover:bg-gray-700 rounded flex items-center ${!isSidebarOpen ? 'justify-center' : ''}`}>
+              <FaClock className="mr-0" />
+              {isSidebarOpen && <span className="ml-2">後でね</span>}
+            </li>
+            <li className={`py-2 hover:bg-gray-700 rounded flex items-center ${!isSidebarOpen ? 'justify-center' : ''}`}>
+              <FaAd className="mr-0" />
+              {isSidebarOpen && <span className="ml-2">広告</span>}
             </li>
           </ul>
         </div>
