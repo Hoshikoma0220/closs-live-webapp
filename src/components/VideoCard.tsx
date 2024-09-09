@@ -1,18 +1,32 @@
+'use client';
+
 interface VideoCardProps {
-    title: string;
-    description: string;
-  }
-  
-  const VideoCard: React.FC<VideoCardProps> = ({ title, description }) => {
-    return (
-      <div className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105 hover:shadow-lg">
-        <img src="/sample-video-thumbnail.jpg" alt={title} className="w-full h-32 object-cover" />
-        <div className="p-4">
-          <h3 className="text-lg font-bold">{title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+  thumbnailUrl: string;
+  title: string;
+  userAvatar: string;
+  userName: string;
+}
+
+const VideoCard: React.FC<VideoCardProps> = ({ thumbnailUrl, title, userAvatar, userName }) => {
+  return (
+    <div className="bg-gray-800 text-white rounded-lg overflow-hidden shadow-lg">
+      {/* サムネイル画像 */}
+      <img src={thumbnailUrl} alt={title} className="w-full h-48 object-cover" />
+      
+      {/* タイトルとユーザー情報 */}
+      <div className="p-4">
+        <h2 className="font-bold text-lg mb-2">{title}</h2>
+        
+        <div className="flex items-center space-x-2">
+          {/* ユーザーアイコン */}
+          <img src={userAvatar} alt={userName} className="w-8 h-8 rounded-full" />
+          
+          {/* ユーザー名 */}
+          <p className="text-sm">{userName}</p>
         </div>
       </div>
-    );
-  };
-  
-  export default VideoCard;
+    </div>
+  );
+};
+
+export default VideoCard;

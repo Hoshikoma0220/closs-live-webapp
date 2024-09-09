@@ -72,7 +72,7 @@ const Layout: React.FC<HeaderProps> = ({ selectedSection, setSelectedSection }) 
           </button>
           <div className="text-xl font-bold text-purple-400">ClossLive</div>
 
-          {/* 動画、配信、投稿のプルダウンメニュー */}
+          {/* 動画、配信、投稿のトグルボタン */}
           <div className="relative ml-4">
             <div className="flex bg-gray-800 p-1 rounded-full">
               <button
@@ -169,7 +169,7 @@ const Layout: React.FC<HeaderProps> = ({ selectedSection, setSelectedSection }) 
           </li>
           <li className={`py-2 hover:bg-gray-700 rounded flex items-center ${!isSidebarOpen ? 'justify-center' : ''}`}>
             <FaClock className="mr-0" />
-            {isSidebarOpen && <span className="ml-2">あとでねと広告</span>}
+            {isSidebarOpen && <span className="ml-2">後でね広告</span>}
           </li>
 
           {/* マイリスト（展開可能） */}
@@ -233,12 +233,16 @@ const Layout: React.FC<HeaderProps> = ({ selectedSection, setSelectedSection }) 
         </div>
       </div>
 
-      {/* 設定メニュー */}
+      {/* 設定メニュー（アニメーション付き） */}
       {isSettingsOpen && (
-        <div className="fixed top-16 right-0 w-64 h-full bg-gray-900 text-white z-50 shadow-lg p-4 transition-transform transform translate-x-0">
+        <div
+          className={`fixed top-16 right-0 w-64 h-full bg-gray-900 text-white z-50 shadow-lg p-4 transform transition-transform duration-700 ease-in-out ${
+            isSettingsOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
           <h2 className="text-xl font-bold mb-4">設定</h2>
           <div className="space-y-2">
-            <div className="flex justify-between bg-gray-800 p-1 rounded-full text-xs"> {/* 文字サイズを小さくして横並びに調整 */}
+            <div className="flex justify-between bg-gray-800 p-1 rounded-full text-xs">
               <button
                 className={`px-4 py-2 rounded-full transition-all ${
                   theme === 'light' ? 'bg-blue-500 text-white' : 'text-gray-300'
